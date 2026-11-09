@@ -1,0 +1,42 @@
+--- a/src/loans.js
++++ b/src/loans.js
+@@ -39,3 +39,18 @@
+   loan.returned = true;
+   return db;
+ }
++
++/**
++ * Renew a loan.
++ */
++export function renewLoan(db, { isbn, memberId }) {
++  const loan = db.loans.find((l) => l.isbn === isbn && l.memberId === memberId);
++  if (!loan) {
++    throw new Error("Loan not found");
++  }
++  const due = new Date(loan.dueDate);
++  due.setUTCDate(due.getUTCDate() + 14);
++  loan.dueDate = due.toISOString().slice(0, 10);
++  loan.renewed = true;
++  return db;
++}
+--- a/test/loans.test.js
++++ b/test/loans.test.js
+@@ -1,6 +1,6 @@
+ import { test } from "node:test";
+ import assert from "node:assert/strict";
+-import { lendBook, returnBook, activeLoans, LOAN_DAYS } from "../src/loans.js";
++import { lendBook, returnBook, renewLoan, activeLoans, LOAN_DAYS } from "../src/loans.js";
+ import { makeDb } from "./fixtures.js";
+ 
+ const TODAY = "2026-01-10";
+@@ -55,3 +55,10 @@
+     /No hay un préstamo activo/,
+   );
+ });
++
++test("renewLoan extiende el vencimiento", () => {
++  const db = makeDb();
++  lendBook(db, { isbn: "9780000000011", memberId: "S001", today: TODAY });
++  renewLoan(db, { isbn: "9780000000011", memberId: "S001" });
++  assert.equal(db.loans[0].dueDate, "2026-02-07");
++});
