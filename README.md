@@ -1,8 +1,9 @@
-# protecso-kiro-capacitacion-cli
+# protecso-workshops-cli-kiro
 
-Repositorio de práctica de la **capacitación de Kiro** de Protecso. Es una CLI pequeña
-de préstamos de biblioteca, con pruebas y **datos sintéticos** (nombres, libros e ISBN
-inventados), pensada para equivocarse sin consecuencias.
+Repositorio de práctica de la **capacitación de Kiro** de los
+[Workshops Protecso](https://workshop.protecso.io/). Es una CLI pequeña de préstamos de
+biblioteca, con pruebas y **datos sintéticos** (nombres, libros e ISBN inventados),
+pensada para equivocarse sin consecuencias. Es público: no contiene datos de clientes.
 
 Los ejercicios están en la guía publicada, no en este repositorio:
 
