@@ -25,7 +25,39 @@ make test     # construye la imagen y corre las pruebas (11 en verde al empezar)
 make run ARGS="list"   # ejecuta la CLI
 ```
 
-Comandos de la CLI:
+## En Windows
+
+Hay dos formas de trabajar, según lo que ya uses:
+
+| Opción | Cuándo | Cómo |
+| ------ | ------ | ---- |
+| **WSL2 con Docker Desktop** | Ya trabajas con WSL | Abre la terminal de tu distribución y usa `make`, igual que en macOS y Linux. Clona el repositorio dentro del sistema de archivos de WSL, no en `/mnt/c` |
+| **PowerShell** | No usas WSL | Usa `tasks.ps1`, el equivalente del `Makefile`. Solo necesitas Git y Docker Desktop |
+
+Equivalencias:
+
+| `make` | PowerShell |
+| ------ | ---------- |
+| `make help` | `.\tasks.ps1 help` |
+| `make docker-up` | `.\tasks.ps1 docker-up` |
+| `make build` | `.\tasks.ps1 build` |
+| `make test` | `.\tasks.ps1 test` |
+| `make run ARGS="list"` | `.\tasks.ps1 run list` |
+| `make shell` | `.\tasks.ps1 shell` |
+
+Si PowerShell bloquea la ejecución del script, permite los scripts locales una vez:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+o ejecútalo sin cambiar la política: `powershell -ExecutionPolicy Bypass -File .\tasks.ps1 test`.
+
+`.gitattributes` fuerza saltos de línea LF. Sin eso, Git en Windows puede convertirlos a
+CRLF, y entonces `bin/ensure-docker.sh` falla en WSL y `git apply` rechaza el parche del
+ejercicio 5.
+
+## Comandos de la CLI
 
 ```text
 list                                   Lista los libros y sus ejemplares libres
@@ -47,7 +79,9 @@ data/          Datos sintéticos (biblioteca.json)
 docs/          Backlog de requerimientos para los ejercicios
 ejercicios/    Material de apoyo de los ejercicios (ejercicio 5: cambio a revisar)
 mcp/           Servidor MCP local y sintético para el ejercicio 7
-bin/           Script que verifica Docker
+bin/           Script que verifica Docker (macOS y Linux)
+Makefile       Comandos para macOS, Linux y WSL
+tasks.ps1      El mismo conjunto de comandos para PowerShell en Windows
 ```
 
 ## Ejercicios por nivel
