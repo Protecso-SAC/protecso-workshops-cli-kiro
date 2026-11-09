@@ -77,7 +77,8 @@ src/
   store.js     Lectura y escritura del archivo JSON
 test/          Pruebas (node:test, sin dependencias)
 data/          Datos sintéticos (biblioteca.json)
-docs/          Backlog de requerimientos para los ejercicios
+docs/          Backlog de requerimientos y base de conocimiento del equipo (docs/conocimiento/)
+.kiro/         Steering de captura de lecciones (manual, opcional)
 ejercicios/    Material de apoyo de los ejercicios (ejercicio 5: cambio a revisar)
 mcp/           Servidor MCP local y sintético para el ejercicio 7
 bin/           Script que verifica Docker (macOS y Linux)
@@ -109,5 +110,10 @@ borrarlos a mano.
 
 ## Cómo se usa en la capacitación
 
-Cada ejercicio parte de este mismo estado. El repositorio **no** incluye reglas de
-steering ni specs: las escribes tú en los niveles siguientes.
+Cada ejercicio parte de este mismo estado. El repositorio **no** incluye reglas de steering que
+Kiro cargue por sí solas ni specs: esas las escribes tú en los niveles siguientes.
+
+La única excepción es `.kiro/steering/capturar-leccion.md`, de modo `manual`: no se carga a
+menos que escribas `#capturar-leccion` en el chat. Es parte de una práctica opcional del Nivel 3,
+una base de conocimiento compartida, descrita en `docs/conocimiento/README.md` y en la guía:
+<https://workshop.protecso.io/kiro/nivel-3/04b-base-de-conocimiento/>.
