@@ -1,0 +1,14 @@
+{
+  "name": "biblioteca-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CLI de préstamos de biblioteca para practicar con Kiro (datos sintéticos)",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

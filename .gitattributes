@@ -1,0 +1,4 @@
+# Saltos de línea LF en todo el repositorio. En Windows, Git puede convertirlos a CRLF
+# al clonar, y eso rompe bin/ensure-docker.sh dentro de WSL o del contenedor y hace que
+# `git apply` rechace el parche del ejercicio 5.
+* text=auto eol=lf

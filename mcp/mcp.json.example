@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "biblioteca": {
+      "command": "docker",
+      "args": [
+        "run", "--rm", "-i",
+        "-v", "RUTA_ABSOLUTA_AL_REPOSITORIO:/app",
+        "-w", "/app",
+        "biblioteca-practica",
+        "node", "mcp/server.js"
+      ]
+    }
+  }
+}

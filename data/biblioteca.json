@@ -1,0 +1,18 @@
+{
+  "books": [
+    { "isbn": "9780000000011", "title": "Introducción a los sistemas distribuidos", "author": "Marta Quispe", "copies": 2 },
+    { "isbn": "9780000000028", "title": "Patrones de diseño aplicados", "author": "Julián Herrera", "copies": 1 },
+    { "isbn": "9780000000035", "title": "Pruebas de software, paso a paso", "author": "Carla Montes", "copies": 3 },
+    { "isbn": "9780000000042", "title": "Bases de datos relacionales", "author": "Andrés Salas", "copies": 1 },
+    { "isbn": "9780000000059", "title": "Arquitectura de aplicaciones web", "author": "Rosa Vilca", "copies": 2 }
+  ],
+  "members": [
+    { "id": "S001", "name": "Lucía Paredes" },
+    { "id": "S002", "name": "Diego Ramos" },
+    { "id": "S003", "name": "Valeria Soto" }
+  ],
+  "loans": [
+    { "isbn": "9780000000028", "memberId": "S001", "dueDate": "2026-01-20", "returned": false },
+    { "isbn": "9780000000011", "memberId": "S002", "dueDate": "2026-01-15", "returned": true }
+  ]
+}
